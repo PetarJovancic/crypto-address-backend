@@ -1,0 +1,10 @@
+{
+  "AES_KEYS": [
+    {
+      "method": "load_from_files",
+      "params": {
+        "file_paths": ["keys/secure_key_1", "keys/secure_key_2"]
+      }
+    }
+  ]
+}
