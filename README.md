@@ -1,7 +1,7 @@
 # crypto-address-backend
 
 Backend server for a generating crypto adresses.
-the following service covers following coins:
+Service covers following coins:
 "BTC", "ETH", "QTUM", "LTC", "DOGE"
 
 <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png"
@@ -40,6 +40,7 @@ Examples are given in .env.example file in the repository
 
 ### Without Docker
 
+Before starting make sure you created postgres database and created .env.
 It is advised to work in a virtual environment. Create one using the following command:
 
 ```
@@ -74,7 +75,7 @@ flask run
 ### Using Docker
 
 There are two separate Docker containers, one for hosting the Postgres database and the other one for Flask service.
-At the momment there is issue connecting flask service to the postgres service
+At the moment there is issue connecting flask service to the postgres service
 
 To build and run containers execute:
 
@@ -91,9 +92,12 @@ Tests are not yet implemented:
 To test endpoints import 'Crypto API.postman_collection.json' file into Postman.
 
 System works the following way:
+
+```
 Step1: User needs to be registered
 Step2: Login user and retrieve access token
 Step3: Use access token to get Auth and create new account for the user
 Step4: Generate crypto address of your chosing for that account
 Step5(Optional): Retrieve all the addresses
 Step5(Optional): Retrieve address by address ID
+```
