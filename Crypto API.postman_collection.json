@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "57fc814c-dde8-40a1-aa9c-addcbfd439b2",
+		"name": "Crypto API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test2\",\n    \"password\": \"test12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/user/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test2\",\n    \"password\": \"test12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/user/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "Create Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTQzNDM0OSwianRpIjoiNGI3ZGM5MTYtNTc3NS00NWRiLWE1MGYtZGJiMWE4ZjZlN2NmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QyIiwibmJmIjoxNjkxNDM0MzQ5LCJleHAiOjE2OTE0NDAzNDl9.rT6YBxfJvspPgorgxQ9-4WCO6kXh1ylWxfTv4pjk9vU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cryptocurrency\": \"BTC\",\n    \"account_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/address",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Adresses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTQ5MTkxOSwianRpIjoiM2JhMTNjMDgtOTVmYy00MjFhLTgyZGMtYTc5YzgxYjMxMjIxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QyIiwibmJmIjoxNjkxNDkxOTE5LCJleHAiOjE2OTE0OTc5MTl9.DkP9FRSoId4ucJGm1EdELSmo0fv7lA74RZtsW_zUo1E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/address?page=1&per_page=10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"address"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTQ0MTAyNywianRpIjoiMThlZjJjNmEtYTkyYy00YmZhLWJiZmItNDMyYjdjM2U3YmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QyIiwibmJmIjoxNjkxNDQxMDI3LCJleHAiOjE2OTE0NDcwMjd9.SKNDg70f_c7WRIS_vtebdqq5huk-16k7mzTnedR3kiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/address/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "814e7db1-2602-4538-b66d-2419797893c8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTQ0MTAyNywianRpIjoiMThlZjJjNmEtYTkyYy00YmZhLWJiZmItNDMyYjdjM2U3YmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QyIiwibmJmIjoxNjkxNDQxMDI3LCJleHAiOjE2OTE0NDcwMjd9.SKNDg70f_c7WRIS_vtebdqq5huk-16k7mzTnedR3kiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\": \"LTC_Account\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/account",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Acounts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTQ0MTAyNywianRpIjoiMThlZjJjNmEtYTkyYy00YmZhLWJiZmItNDMyYjdjM2U3YmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QyIiwibmJmIjoxNjkxNDQxMDI3LCJleHAiOjE2OTE0NDcwMjd9.SKNDg70f_c7WRIS_vtebdqq5huk-16k7mzTnedR3kiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/account",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
