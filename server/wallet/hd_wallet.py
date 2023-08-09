@@ -30,7 +30,6 @@ class Wallet:
         return _hd_wallet.private_key()
 
     def generate_address_from_private_key(self, symbol, account):
-        print("****")
         """Generate address for an account."""
         _private_key = self.generate_private_key(symbol, account)
         hd_wallet = HDWallet(symbol=symbol)
