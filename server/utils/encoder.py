@@ -9,7 +9,7 @@ from server.utils.keys_loader import KeysLoader
 class Encoder:
     """AES encoder."""
 
-    def __init__(self, key_parts: list[tuple[int, str]] = None):
+    def __init__(self, key_parts):
         self._bs = AES.block_size
         key_parts = [
             (idx, base64.b64decode(key_part.encode()))
@@ -18,11 +18,11 @@ class Encoder:
         self._key = Shamir.combine(key_parts, ssss=False)
 
     @classmethod
-    def get_encoder(cls) -> "Encoder":
+    def get_encoder(cls):
         """Get Encoder class and context."""
         return cls(KeysLoader.get_keys_loader().load_aes_keys())
 
-    def encrypt(self, raw: str) -> str:
+    def encrypt(self, raw):
         """Encrypt incoming string."""
         raw = pad(raw.encode(), self._bs)
         cipher = AES.new(key=self._key, mode=AES.MODE_EAX)
@@ -33,7 +33,7 @@ class Encoder:
         )
         return base64.b64encode(nonce + tag + encrypted).decode("utf-8")
 
-    def decrypt(self, enc: str) -> str:
+    def decrypt(self, enc):
         """Decrypt incoming string."""
         enc = base64.b64decode(enc)
         nonce, tag, encrypted = (

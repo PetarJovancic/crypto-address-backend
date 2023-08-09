@@ -19,7 +19,7 @@ def add_account() -> dict:
 
 
         new_account = {
-            'id': result.public_id,
+            'id': result.id,
             'account_name': result.account_name
         }
 
@@ -34,7 +34,7 @@ def list_accounts() -> dict:
     accounts = get_all_accounts()
     result = [
         {
-            'id': account.public_id,
+            'id': account.id,
             'account_name': account.account_name,
             'user_id': account.user_id,
         } for account in accounts]
