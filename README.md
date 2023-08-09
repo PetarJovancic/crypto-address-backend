@@ -16,7 +16,7 @@ Service covers following coins:
      alt="Markdown Postgres icon"
      height="30px"
 />&nbsp;&nbsp;&nbsp;
-<img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png"
+<img src="https://img.icons8.com/fluency/48/docker.png"
      alt="Markdown Docker icon"
      height="30px"
 />
