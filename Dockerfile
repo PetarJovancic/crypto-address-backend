@@ -1,14 +1,19 @@
-FROM python:3.9
+FROM python:3.9-slim-buster
 
-RUN python3 -m pip install flask
-RUN mkdir /app
-WORKDIR /app
+# # set work directory
+WORKDIR /usr/src/app
 
-COPY ./requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
+# install dependencies
+RUN pip install --upgrade pip
+COPY ./requirements.txt /usr/src/app/requirements.txt
+RUN pip install -r requirements.txt
 COPY ./ ./
-ENV FLASK_APP=run.py
 
-CMD ["sh", "-c", "sleep 5 \ 
+WORKDIR /usr/src/app 
+# EXPOSE 5000
+CMD ["sh", "-c", "sleep 2 \ 
     && python -m flask run --host=0.0.0.0"]

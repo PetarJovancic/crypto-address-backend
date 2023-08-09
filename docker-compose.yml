@@ -1,29 +1,35 @@
-volumes:
-  crypto_address-vol:
+version: "3.3"
 
 services:
-  pgsql:
-    image: postgres:12.11
+  db:
+    image: postgres:15
     restart: always
     environment:
       POSTGRES_PASSWORD: password # environment variable that sets the superuser password for PostgreSQL
       POSTGRES_USER: user # variable that will create the specified user with superuser power and a database with the same name
       POSTGRES_DB: zeply2
-      POSTGRES_HOST: localhost
+      POSTGRES_HOST: db
+      container_name: db
+      hostname: db
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
-      - crypto_address-vol:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data/
       # - ./scripts:/docker-entrypoint-initdb.d/
     ports:
-      - "5434:5432"
+      - "5434:5434"
+    expose:
+      - "5434"
 
-  python:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+  web:
+    build: .
     depends_on:
-      - pgsql
+      - db
+    env_file:
+      - ./.env
     ports:
-      - 6000:5000
-    volumes:
-      - ./app:/usr/src/app
+      - "8080:5000"
+    expose:
+      - "5000"
+
+volumes:
+  postgres_data:

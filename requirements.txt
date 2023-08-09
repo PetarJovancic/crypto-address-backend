@@ -7,7 +7,6 @@ flask-cors
 asgiref
 flake8
 flask-jwt-extended
-py_crypto_hd_wallet
 Werkzeug
 Flask-Migrate==3.1.0
 SQLAlchemy==1.4.18
